@@ -15,7 +15,7 @@ public class HelloRouter {
     public RouterFunction<ServerResponse> route(HelloHandler helloHandler) {
         return RouterFunctions.route(
             RequestPredicates.GET("/hello").and(RequestPredicates.accept(MediaType.TEXT_PLAIN)),
-            serverRequest -> helloHandler.hello(serverRequest)
+            helloHandler::hello
         );
     }
 }
